@@ -1,0 +1,2 @@
+module LorHelper
+end

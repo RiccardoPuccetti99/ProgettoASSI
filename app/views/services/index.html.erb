@@ -1,3 +1,40 @@
-<%= render "shared/nav" %>
-<p>Homepage</p>
-<%= render "shared/footer" %>
+<% content_for :body do %>
+
+
+  <main style='background: url(<%= asset_path 'tftOpaco.png' %>);'>
+    <div class="container" style="padding-top: 20px;">
+      <div class="card-group">
+        <div class="card">
+          <img src="<%= asset_path 'Enchanted Galio.jpg' %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">League Of Legends</h5>
+            <p class="card-text">Profile statistics</p>
+            <p class="card-text">Examine last 5 matches</p>
+            <%= link_to 'Check it out', lol_review_path , class:"btn btn-primary rm_underline"%>
+          </div>  
+        </div><!-- end card -->
+
+        <div class="card">
+          <img src="<%= asset_path 'diana.png' %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Legends Of Runeterra</h5>
+            <p class="card-text">Profile statistics</p>
+            <p class="card-text">Examine last 5 matches</p>
+            <%= link_to 'Check it out', lor_review_path , class:"btn btn-primary rm_underline"%>
+          </div>
+        </div>
+        <div class="card ">
+          <img src="<%= asset_path 'kindred.jpg' %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Team Fight Tactics</h5>
+            <p class="card-text">Profile statistics</p>
+            <p class="card-text">Examine last 10 matches</p>
+            <%= link_to 'Check it out', tft_review_path , class:"btn btn-primary rm_underline"%>
+          </div> 
+        </div><!-- end card -->
+      </div> <!-- end card deck -->
+    </div> <!-- end container -->
+  </main>
+
+
+<% end %>

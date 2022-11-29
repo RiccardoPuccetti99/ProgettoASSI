@@ -1,0 +1,368 @@
+<% content_for :body do %>
+    <main style="background-color: rgb(14, 4, 14);">
+    <div class="bg-image d-flex justify-content-center align-items-center" style="
+    background: url(<%= asset_path 'tftOpaco.png' %>);
+    background-repeat: no-repeat;
+    height:40vh;
+    background-position:center;
+    ">
+      <div style=" background-color:rgba(0,0,0,0.6)">
+        <div class="d-flex justify-content-center align-items-center h-100">
+
+
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
+
+                <!-- Dropdown -->
+                <select id="regionSelector" name="region" class="custom-select my-1 mr-sm-2" id="RegionSelector"
+                  style="background-color: #160220; color: white;">
+                  <option value="euw1">EUW1</option>
+                  <option value="br1">BR1</option>
+                  <option value="eun1">EUN1</option>
+                  <option value="jp1">JP1</option>
+                  <option value="kr">KR</option>
+                  <option value="la1">LA1</option>
+                  <option value="la2">LA2</option>
+                  <option value="na1">NA1</option>
+                  <option value="oc1">OC1</option>
+                  <option value="ru">RU</option>
+                  <option value="tr1">TR1</option>
+                </select>
+
+                <!-- Search -->
+
+                <input type="search" spellcheck="false" id="summonerName" name="summoner" class="form-control"
+                  placeholder="Summoner name" aria-label="Search" style="background-color: #160220; color: white;">
+
+                <div class=" buttonForm">
+                  <button type="button" id="btn-submit" class=" btn btn-light btn-primary" data-mdb-ripple-color="dark"
+                    style="background-color: #160220; color: white;">Search</button>
+                </div>
+              </div>
+
+            </div>
+        </div>
+        <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+      </div>
+    </div>
+
+
+    <!--fine maschera-->
+    <!-- stampa-->
+    <div class="container" style="padding-top: 50px; color: white;">
+      <div id="rowLeague" class="row">
+        <div id="summ" class="col-12 col-md-6 col-sm-6 center_box">
+        </div>
+        <div id="favourite" class="col-12 col-md-6 col-sm-6 center_box">
+        </div>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top: 50px; color: white;">
+      <div id="grafici" class="row center_box">
+        <div id="grafWin" class="col-8 col-md-8 col-sm-10">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="container" style="padding-top: 50px;">
+      <div id="row0" class="row" style="color: white;">
+        <div id="col00" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col01" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col02" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col03" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col04" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col05" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+      </div>
+
+      <div id="row1" class="row" style="color:white;">
+        <div id="col10" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col11" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col12" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col13" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col14" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col15" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+      </div>
+
+
+      <div id="row2" class="row" style="color: white;">
+        <div id="col20" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col21" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col22" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col23" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col24" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col25" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+      </div>
+
+      <div id="row3" class="row" style="color: white;">
+        <div id="col30" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col31" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col32" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col33" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col34" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col35" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+      </div>
+
+      <div id="row4" class="row" style="color: white;">
+        <div id="col40" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col41" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col42" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col43" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col44" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+        <div id="col45" class="col-2 col-md-2 col-sm-2 center_box">
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
+
+    <!-- fine stampa-->
+
+</main> 
+
+<script>
+$(document).ready(function () {
+    $("#btn-submit").click(function () {   
+    var player = document.getElementById("summonerName").value;
+    if (player == '') alert("Empty summoner name doesn't exists");
+    else {
+       
+    var spinner = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>';
+    $("#btn-submit").html(spinner);
+    var request = $.ajax({
+      url: '/lor_review_player?summoner=' + player + '&region=' + $("#regionSelector").val(),
+      method: "GET",
+      dataType: "json"
+    });
+    request.done(function( result ) {
+      $("#btn-submit").text("Search");
+      if (Object.keys(result).length == 1) {
+         if (JSON.stringify(result.status).includes("404")) { alert("Player not found"); }
+         if (JSON.stringify(result.status).includes("NM")) { alert("Player played 0 games"); }
+      }
+      else{
+
+        $("#rowLeague").addClass("riquadro_league");
+            $("#rowLeague").css("textShadow", "0 0 10px #000000, 0 0 5px #000000, 0 0 5px #000000");
+
+            //inserisce dati nei vari spazi
+            $("#summ").html("<div><h5>" + result[0].name + "</h5><p>LV: " + result[0].summonerLevel + "</p></div>");
+
+            var dict1 = new Object();
+            for (let x = 0; x < Object.keys(result[1]).length; x++) {
+              if(result[1][x].factions.length == 0){
+                  if (!dict1.hasOwnProperty(Custom)) {
+                  dict1[Custom] = 0;
+                  }
+                  ++dict1[Custom];
+              }    
+              else if(result[1][x].factions.length == 1){
+                if (!dict1.hasOwnProperty(result[1][x].factions[0])) {
+                  dict1[result[1][x].factions[0]] = 0;
+                  }
+                  ++dict1[result[1][x].factions[0]];
+              }    
+              else{
+                if (!dict1.hasOwnProperty(result[1][x].factions[0])) {
+                  dict1[result[1][x].factions[0]] = 0;
+                  }
+                  ++dict1[result[1][x].factions[0]];
+                if (!dict1.hasOwnProperty(result[1][x].factions[1])) {
+                  dict1[result[1][x].factions[1]] = 0;
+                  }
+                  ++dict1[result[1][x].factions[1]]; 
+            }
+            }
+            
+            let max1key, max2key, max1value=0, max2value=0;
+            arr = [], ind = []
+            for (let [key, value] of Object.entries(dict1)){
+              arr.push(key.replaceAll('faction_', '').replaceAll('_Name', ''))
+              ind.push(value)
+              if(dict1[key]>max1value){
+                max1key = key
+                max1value = value
+              }
+              else{
+                if(dict1[key]>max2value){
+                max2key = key
+                max2value = value
+                }
+            }
+            }
+            max1key = max1key.replaceAll('faction_', '').replaceAll('_Name', '')
+            max2key = max2key.replaceAll('faction_', '').replaceAll('_Name', '')
+
+            $("#favourite").html("<div><h5>Favourite factions</h5><p>" + max1key + ": " + max1value + "</p><p>" + max2key + ": " + max2value + "</p></div>");
+
+
+            //played chart
+            $("#grafWin").addClass("riquadro_league");
+            $("#grafWin").html('<canvas id="gwin"></canvas>');
+
+
+             var ctx = document.getElementById('gwin');
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: arr,
+                datasets: [{
+                  label: 'Number of times used',
+                  data: ind,
+                  fill: false,
+                  tension: 0.1,
+                  backgroundColor: '#0000ff'
+                }],
+              },
+              options: {
+                legend: {
+                  labels: {
+                    fontColor: 'white'
+                  }
+                },
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true,
+                      fontColor: 'white'
+                    }
+                  }],
+                  xAxes: [{
+                    ticks: {
+                      fontColor: 'white'
+                    }
+                  }]
+                }
+              },
+            });
+
+
+            //print table##########################################à
+            for (var i = 0; i < 5; i++) {
+              var row = document.getElementById("row" + i)
+              $("#row" + i).css("textShadow", "0 0 10px #000000, 0 0 5px #000000, 0 0 5px #000000")
+              $("#row" + i).addClass("match");
+
+
+
+
+
+              if (result[1][i].game_outcome == 'win') {
+                outcome = "WIN";
+                $("#col" + i + "0").html("<div><p style='color:#0000ff;'>" + outcome + "</p><p>"+result[1][i].game_type.toUpperCase()+"</p><p>"+result[1][i].game_mode.toUpperCase()+"</p></div>");
+                document.getElementById("row" + i).classList.remove('outcome_lose');
+                document.getElementById("row" + i).classList.add('outcome_win');
+              }
+              else {
+                outcome = "LOSS";
+                $("#col" + i + "0").html("<div><p style='color:#ff0000;'>" + outcome + "</p><p>"+result[1][i].game_type.toUpperCase()+"</p><p>"+result[1][i].game_mode.toUpperCase()+"</p></div>");
+                document.getElementById("row" + i).classList.remove('outcome_win');
+                document.getElementById("row" + i).classList.add('outcome_lose');
+              }
+
+              let order = "first";
+              if (result[1][i].order_of_play == 1) order = "second";
+              //if (result[1][i].game_type == '') $("#col" + i + "1").html("<div><p>CUSTOM</p><p>Played " + order + "</p></div>");
+              $("#col" + i + "1").html("<div><p>Turn count: " + result[1][i].total_turn_count + "</p><p>Played " + order + "</p></div>");
+              
+
+              $("#col" + i + "2").html("");
+              $("#col" + i + "2").append("Factions player:");
+              $.each(result[1][i].factions, function(index, value){
+                $("#col" + i + "2").append("<br>" + value.replaceAll('faction_', '').replaceAll('_Name', ''));
+              });
+
+              $("#col" + i + "3").html("");
+              $("#col" + i + "3").append("Factions enemy:");
+              if(!Array.isArray(result[2][i].factions))
+                $("#col" + i + "3").append("<br>AI FACTIONS" );
+              else{
+              $.each(result[2][i].factions, function(index, value){ 
+                  $("#col" + i + "3").append("<br>" + value.replaceAll('faction_', '').replaceAll('_Name', ''));
+              });
+              }
+
+              $("#col" + i + "4").html("");
+              if(result[1][i].deck_code == '') 
+                $("#col" + i + "4").append("<br>" + "<p>Tutorial deck</p>")
+              else {
+                $("#col" + i + "4").append("<br>" +"<button id='" + i + "' onClick='deck_click(this.id)' value='" + result[1][i].deck_code + "'>Copy deck of: "+result[0].name+"</button>");
+                $("#"+i.toString()).addClass("btn_copy");
+              }
+
+
+              $("#col" + i + "5").html("");
+              if(result[2][i].deck_code == 'AI_DECK') 
+                $("#col" + i + "5").append("<br>" + "<p>AI deck</p>")
+              else {
+                $("#col" + i + "5").append("<br>" +"<button id='2" + i + "' onClick='deck_click(this.id)' value='" + result[2][i].deck_code + "'>Copy deck of: "+result[2][i].name+"</button>");
+                $("#2"+i.toString()).addClass("btn_copy");
+              }
+            }
+          
+
+      }
+    });
+ 
+    request.fail(function( jqXHR, textStatus ) {
+      $("#btn-submit").text("Search");
+      alert( "Request failed: " + textStatus );
+    });
+    
+    }})});
+</script>
+
+<script type="text/javascript">
+  function deck_click(clicked_id) {
+    var input = document.createElement('input');
+    input.value = document.getElementById(clicked_id).value;
+    input.id = 'inputID';
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    alert("Deck code copied to clipboard");
+  }
+</script>
+
+<% end %>

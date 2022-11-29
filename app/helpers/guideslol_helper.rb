@@ -1,0 +1,2 @@
+module GuideslolHelper
+end

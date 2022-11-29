@@ -27,10 +27,6 @@ nav a:hover{
     text-decoration: none!important;
 }
 
-.card{
-    border: 2px solid white;
-    opacity: 85%;
-}
 
 .riquadro{
     background-color: #310e4732;
@@ -77,6 +73,12 @@ main{
     text-align: center;
     background-color: #24003348;
     color: white;
+    border: 2px solid white;
+    opacity: 85%;
+}
+
+.card-img-top{
+    max-height: 600px!important;
 }
 
 .bg-light {
@@ -142,9 +144,18 @@ footer img{
     color: #160220;
 }
 
+.scroll{
+    max-height:150px; 
+    overflow-x: hidden!important;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+
 .stampa{
     margin-top: 10px;
 }
+
 
 .table{
     background-color: #160220;

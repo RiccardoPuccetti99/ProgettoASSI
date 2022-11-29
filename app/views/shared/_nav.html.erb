@@ -15,19 +15,21 @@
             <span class="full-text">League Of Legends</span><span class="short-text">LOL</span>
           </label>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to 'Player review', { :controller => :lol, :action => :index } , class:"rm_underline dropdown-item"%>
-            <a class="dropdown-item" href="LOL_LeaderboardCH.html">Leaderboard</a>
+            <%= link_to 'Player review', lol_review_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Leaderboard', lol_leaderboard_path , class:"rm_underline dropdown-item"%>
           </div>
         </li>
 
 
-        <li class="nav-item badge">
-
-        <%= link_to({controller: "lor", action: "index"}, class:"nav-link rm_underline")  do %>
-          <span class="full-text">Legends Of Runeterra</span>
-          <span class="short-text">LOR</span>             
-        <% end %>
-
+        <li class="nav-item dropdown badge">
+          <label class="label-format nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="full-text">Legends Of Runeterra</span><span class="short-text">LOR</span>
+          </label>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'Player review', lor_review_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Leaderboard', lor_leaderboard_path , class:"rm_underline dropdown-item"%>
+          </div>
         </li>
 
 
@@ -37,8 +39,8 @@
             <span class="full-text">TeamFight Tactics</span><span class="short-text">TFT</span>
           </label>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to 'Player review', { :controller => :tft, :action => :index } , class:"rm_underline dropdown-item"%>
-            <a class="dropdown-item" href="TFT_LeaderBoardCH.html">Leaderboard</a>
+            <%= link_to 'Player review', tft_review_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Leaderboard', tft_leaderboard_path , class:"rm_underline dropdown-item"%>
           </div>
         </li>
 
@@ -46,12 +48,12 @@
         <li class="nav-item dropdown badge">
           <label class="label-format nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="full-text">Tournaments</span><span class="short-text">Tourney</span>
+            <span class="full-text">Guides</span><span class="short-text">Tourney</span>
           </label>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="">LOL Tournaments</a>
-            <a class="dropdown-item" href="">LOR Tournaments</a>
-            <a class="dropdown-item" href="">TFT Tournaments</a>
+            <%= link_to 'LOL guides', guideslol_index_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'LOR guides', guideslor_index_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'TFT guides', guidestft_index_path , class:"rm_underline dropdown-item"%>
           </div>
         </li>
 

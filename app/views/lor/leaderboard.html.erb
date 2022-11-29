@@ -1,0 +1,127 @@
+<% content_for :body do %>
+  <main style="background-color: rgb(14, 4, 14);">
+    <div class="bg-image d-flex justify-content-center align-items-center" style="
+    background: url(<%= asset_path 'tftOpaco.png' %>);
+    background-repeat: no-repeat;
+    height:40vh;
+    background-position:center;
+    ">
+      <div style=" background-color:rgba(0,0,0,0.6)">
+        <div class="d-flex justify-content-center align-items-center h-100">
+
+
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
+
+                <!-- Dropdown -->
+                <label style="color:white;">Select region: </label>
+                <select id="regionSelector" name="region" class="custom-select my-1 mr-sm-2" id="RegionSelector"
+                  style="background-color: #160220; color: white;">
+                  <option value="europe">EUROPE</option>
+                  <option value="americas">AMERICA</option>
+                  <option value="sea">SEA</option>
+                </select>
+
+                
+
+                <div class=" buttonForm">
+                  <button type="button" id="btn-submit" class=" btn btn-light btn-primary" data-mdb-ripple-color="dark"
+                    style="background-color: #160220; color: white;">Search</button>
+                </div>
+              </div>
+
+            </div>
+        </div>
+        <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+      </div>
+    </div>
+    <!--fine maschera-->
+
+    <div class="fixtable">
+          <table id="printLeaderBoard" class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">LP</th>
+                <th scope="col">Name</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+    </div>
+
+
+
+
+
+
+<script>
+
+$(document).ready(function () {
+    $("#btn-submit").click(function () {   
+    var spinner = '<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>';
+    $("#btn-submit").html(spinner);
+    var request = $.ajax({
+      url: '/lor_leaderboard_queue?region=' + $("#regionSelector").val(),
+      method: "GET",
+      dataType: "json"
+    });
+    request.done(function( result ) {
+      $("#btn-submit").text("Search");
+      
+      //reset table
+      var table = document.getElementById("printLeaderBoard").getElementsByTagName('tbody')[0];
+
+
+      table.parentNode.removeChild(table);
+
+      var tbody = document.createElement("tbody");
+      document.getElementById("printLeaderBoard").appendChild(tbody);
+      //fine reset
+
+
+      let cnt = 0;
+      var table = document.getElementById("printLeaderBoard").getElementsByTagName('tbody')[0];
+
+      $(result.slice(0, 50)).each(function (x, y) {
+
+        var row = table.insertRow(cnt);
+        if (cnt == 0) row.classList.add('riga_primo');
+        else if (cnt == 1) row.classList.add('riga_secondo');
+        else if (cnt == 2) row.classList.add('riga_terzo');
+        else if (cnt % 2 == 1) row.classList.add('riga_dispari');
+        else row.classList.add('riga_pari');
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = cnt + 1;
+        cell2.innerHTML = y.lp;
+        cell3.innerHTML = y.name;
+        cnt++;
+      });
+
+
+    });
+ 
+    request.fail(function( jqXHR, textStatus ) {
+      $("#btn-submit").text("Search");
+      alert( "Request failed: " + textStatus );
+    });
+    
+    })});
+</script>
+
+
+</main>    
+<% end %>

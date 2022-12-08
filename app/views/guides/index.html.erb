@@ -1,0 +1,33 @@
+<%= content_for :body do %>
+<main style="background-color: #140e30">
+  <br>
+  <h1 style="text-align:center; color: white;">Guides</h1>
+  <br>
+ 
+  <table id="guides" class="table" style="background:rgba(61, 76, 218, 0.5);">
+    <thead>
+      <tr>
+        <th> Title </th>
+        <th> Champion </th>
+        <th> Role </th>
+        <th> Creation Date </th>
+        <th> More Info </th>
+      </tr>
+    </thead>  
+    <tbody>
+      <% @guides.each do |guide| %>
+        <tr>
+          <th> <%= guide.title%> </th>
+          <th> <%= guide.champ_name%> </th>
+          <th> <%= guide.champ_role%> </th>
+          <th> <%= guide.created_at%> </th>
+          <th> <%= link_to "Details", guide_path(guide)%> </th>
+        </tr> 
+      <% end %>
+    </tbody>
+    </table>  
+  <br>
+  <%= link_to "Add new guide", new_guide_path %>
+</main>
+<% end %>
+

@@ -1,0 +1,57 @@
+<%= content_for :body do %>
+<main style="background-color: #140e30; color: white; padding-left: 10px">
+  <br>
+  <h1 style="text-align:center;">Guides</h1>
+  <br>
+  <h2> Details about <%= @guide.title%> </h2>
+	
+	<ul id="details">
+		<li>
+			Champion:
+			<%= @guide.champ_name%></li>
+		<li>
+			Role:
+			<%= @guide.champ_role%></li>
+		<li>
+			Creation date:
+			<%= @guide.created_at.strftime("%B %d, %Y")%></li>  
+		<li>
+			Creator:
+			<%= @guide.user.uid%></li>	
+	</ul>		      
+
+	<h3> Description: </h3>
+
+	<p id="description"><%= @guide.guida%></p>
+
+	<h3> Building details: </h3>
+
+	<p id="rune">
+	Runes:
+	<%= @guide.champ_rune%></p>
+
+	<p id="skill">
+	Skills order:
+	<%= @guide.skill_order%></p>
+
+	<p id="item">
+	List of items:
+	<%= @guide.item%></p>
+
+	<h3> Matchups: </h3>
+
+	<p id="ideal">
+	Ideal:
+	<%= @guide.ideal%></p>
+
+	<p id="counter">
+	Ideal:
+	<%= @guide.counter%></p>
+
+	<br>
+	<br>
+
+<%= link_to "Edit info", edit_guide_path(@guide) %> - <%= link_to "Delete", guide_path(@guide), :method => :delete %> - <%= link_to "Back to guide list", guides_path %>
+
+</main>    
+<% end %> 

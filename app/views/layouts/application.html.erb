@@ -13,6 +13,13 @@
 
   <body>
     <%= render "shared/nav" %>
+    
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
     <%= yield :body %>
     <%= render "shared/footer" %>  
   </body>

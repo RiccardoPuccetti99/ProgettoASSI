@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
   root "services#index"
+  devise_for :users
   resources :services, only: [:index]
+  resources :guides
+  resources :reviews
   
   get "lol_review", to: "lol#review"
   get "lol_review_player", to: "lol#apicall"
@@ -18,8 +22,5 @@ Rails.application.routes.draw do
   get "tft_leaderboard", to: "tft#leaderboard"
   get "tft_leaderboard_queue", to: "tft#leaderboardAPI"
 
-  resources :guideslol
-  resources :guideslor
-  resources :guidestft
 
 end

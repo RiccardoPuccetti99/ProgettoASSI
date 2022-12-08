@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item active badge"> 
-          <%= link_to 'RPP', { :controller => :services, :action => :index } , class:"rm_underline nav-link"%>
+           <%= link_to 'RPP', root_path , class:"rm_underline nav-link"%> 
         </li>
         <li class="nav-item dropdown badge">
           <label class="label-format nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
@@ -45,22 +45,36 @@
         </li>
 
 
+        <li class="nav-item active badge"> 
+          <%= link_to 'Guides', guides_path, class:"rm_underline nav-link" %>
+        </li>
+
+        
+
+        <% if current_user %>
         <li class="nav-item dropdown badge">
           <label class="label-format nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="full-text">Guides</span><span class="short-text">Tourney</span>
+            <span class="full-text"><%= current_user.uid %></span><span class="short-text">User</span>
           </label>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to 'LOL guides', guideslol_index_path , class:"rm_underline dropdown-item"%>
-            <%= link_to 'LOR guides', guideslor_index_path , class:"rm_underline dropdown-item"%>
-            <%= link_to 'TFT guides', guidestft_index_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Edit', edit_user_registration_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Logout', destroy_user_session_path , method: :delete, class:"rm_underline dropdown-item"%>
           </div>
         </li>
 
-        <li class="nav-item badge">
-          <a class="nav-link" href=""><span class="full-text">Account</span><span
-              class="short-text">Account</span></a>
+        <% else %>
+        <li class="nav-item dropdown badge">
+          <label class="label-format nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="full-text">Account</span><span class="short-text">Account</span>
+          </label>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <%= link_to 'Login', new_user_session_path , class:"rm_underline dropdown-item"%>
+            <%= link_to 'Sign up', new_user_registration_path , class:"rm_underline dropdown-item"%>
+          </div>
         </li>
+        <% end %>
 
       </ul>
     </div>

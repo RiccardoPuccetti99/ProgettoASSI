@@ -1,3 +1,14 @@
 <%= content_for :body do %>
-
-<% end %>
+<main style="background-color: #140e30; color: white">
+  <br>
+  <h1 style="text-align:center;">Guides</h1>
+  <br>
+  <h2> Edit Guide </h2>
+  
+  <%= form_tag guide_path(@guide), :method => :put do %>
+  
+    <%= render :partial => 'guide_form' %>
+    <%= submit_tag 'Save Changes' %>
+  <% end %>
+</main>    
+<% end %>   

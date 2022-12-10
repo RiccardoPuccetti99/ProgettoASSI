@@ -13,11 +13,11 @@ class GuidesController < ApplicationController
     end 
 
     def new
-        #authorize! :create, @guide, :message => "BEWARE: You are not authorized to create new guides."
+        authorize! :create, Guide, :message => "BEWARE: You are not authorized to create new guides."
     end 
 
     def create
-        authorize! :create, @guide, :message => "BEWARE: You are not authorized to create new guides."
+        authorize! :create, Guide, :message => "BEWARE: You are not authorized to create new guides."
         user_id = current_user.id
         @user = User.find(user_id)
 		@guide = @user.guide.create!(params[:guide].permit(:title, :champ_name, :champ_role, :champ_rune, :skill_order, :path_jungle, :item, :guida, :counter, :ideal))
@@ -31,6 +31,23 @@ class GuidesController < ApplicationController
 		@guide = Guide.find(id)
 		authorize! :update, @guide, :message => "BEWARE: You are not authorized to edit new guides."       
     end  
-  
+
+	def update
+		id = params[:id]
+		@guide = Guide.find(id)
+		authorize! :update, @guide, :message => "BEWARE: You are not authorized to update a movies."
+		@guide.update(params[:guide].permit(:title, :champ_name, :champ_role, :champ_rune, :skill_order, :path_jungle, :item, :guida, :counter, :ideal))
+        flash[:notice] = "#{@guide.title} was successfully updated."
+		redirect_to guide_path(@guide)
+	end
+	
+	def destroy
+		id = params[:id]
+		@guide = Guide.find(id)
+		authorize! :destroy, @guide, :message => "BEWARE: You are not authorized to delete movies."
+		@guide.destroy
+		flash[:notice] = "#{@guide.title} has been deleted."
+		redirect_to guides_path
+	end    
      
 end

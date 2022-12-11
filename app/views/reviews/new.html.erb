@@ -1,0 +1,19 @@
+<%= content_for :body do %>
+<main style="background-color: #140e30; color:white">
+
+  <h2>Add a comment</h2> 
+
+<%= form_tag reviews_path(:guide_id => @guide), :method => :post do %>
+
+  <%= label :review, :rating, 'Rating' %>
+  <%= select :review, :rating, [1,2,3,4,5,6,7,8,9,10] %>
+
+  <%= label :review, :comment, 'Comment' %>
+  <%= text_field :review, :comment %>
+
+  <br/><br/>
+  <%= submit_tag 'Add review' %>
+<% end %>
+
+  </main>    
+<% end %> 

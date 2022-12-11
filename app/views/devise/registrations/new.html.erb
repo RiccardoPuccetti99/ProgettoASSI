@@ -1,4 +1,6 @@
 <% content_for :body do %>
+<main style="background-color: #140e30; color: white; padding-left: 10px">
+  <br>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -34,5 +36,6 @@
 
 <%= render "devise/shared/links" %>
 
+</main>
 <% end %>
 

@@ -1,4 +1,6 @@
 <% content_for :body do %>
+<main style="background-color: #140e30; color: white; padding-left: 10px;">
+  <br>
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,4 +27,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</main>
 <% end %>

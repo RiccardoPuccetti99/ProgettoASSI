@@ -1,32 +1,33 @@
-<%= label :guide, :title, 'Title' %>
-<%= text_field :guide, :title %>
- 
-<%= label :guide, :champ_name, 'Champion name' %>
-<%= text_field :guide, :champ_name %>
- 
-<%= label :guide, :champ_role, 'Champion role' %>
-<%= text_field :guide, :champ_role %>
+<%= form.label :title, 'Title: ' %><br>
+<%= form.text_field :title %><br>
 
-<%= label :guide, :champ_rune, 'Runes' %>
-<%= text_area :guide, :champ_rune, size: "70x5" %>
+<%= form.label :champ_name, 'Champion name: ' %><br>
+<%= form.text_field :champ_name %><br>
 
-<%= label :guide, :skill_order, 'Skills order of upgrade' %>
-<%= text_field :guide, :skill_order %>
+<%= form.label :champ_role, 'Champion role: ' %><br>
+<%= form.select :champ_role,  ['Toplaner', 'Jungler', 'Midlaner', 'ADCarry', 'Support'] %><br>
 
-<%= label :guide, :path_jungle, 'Jungle path' %>
-<%= text_area :guide, :path_jungle %>
+<%= form.label :champ_rune, 'Rune: '%><br>
+<%= form.text_area :champ_rune %><br>
 
-<%= label :guide, :item, 'Items' %>
-<%= text_area :guide, :item %>
+<%= form.label :skill_order, 'Skill order: ' %><br>
+<%= form.text_field :skill_order %><br>
 
-<%= label :guide, :guida, 'Guide' %>
-<%= text_area :guide, :guida %>
+<%= form.label :path_jungle, 'Jungle path: ' %><br>
+<%= form.text_area :path_jungle %><br>
 
-<%= label :guide, :counter, 'Counter matchups' %>
-<%= text_area :guide, :counter %>
+<%= form.label :item, 'Item: ' %><br>
+<%= form.text_area :item %><br>
 
-<%= label :guide, :ideal, 'Ideal matchups' %>
-<%= text_area :guide, :ideal %>
+<%= form.label :guida, 'Guide: ' %><br>
+<%= form.text_area :guida %><br>
+
+<%= form.label :counter, 'Counter matchups: ' %><br>
+<%= form.text_area :counter %><br>
+
+<%= form.label :ideal, 'Ideal matchups: ' %><br>
+<%= form.text_area :ideal %><br>
+
 
 
 

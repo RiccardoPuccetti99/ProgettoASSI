@@ -5,10 +5,11 @@
   <br>
   <h2> Edit Guide </h2>
   
-  <%= form_tag guide_path(@guide), :method => :put do %>
-  
-    <%= render :partial => 'guide_form' %>
-    <%= submit_tag 'Save Changes' %>
+  <%= form_with model: @guide do |form| %>
+  <%= render partial: "guide_form", locals: { form: form } %>
+  <%= submit_tag 'Save Changes' %> 
   <% end %>
+
+
 </main>    
 <% end %>   

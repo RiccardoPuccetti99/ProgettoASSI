@@ -4,8 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :guide, dependent: :delete_all 
-  has_many :review  
+  has_many :guide, dependent: :destroy
+  has_many :review, dependent: :destroy  
+
+  #constraints
+  validates :uid, :presence => true
   
   #canard
   acts_as_user :roles => [ :writer, :admin ]

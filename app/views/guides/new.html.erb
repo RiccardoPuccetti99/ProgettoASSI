@@ -1,14 +1,31 @@
 <%= content_for :body do %>
 <main style="background-color: #140e30; color: white">
+  <div style="padding-left: 10px">
   <br>
   <h1 style="text-align:center;">Guides</h1>
   <br>
-  <h2> Create New Guide </h2>
-  
-  <%= form_tag guides_path, :method => :post do %>
-  
-    <%= render :partial => 'guide_form' %>
-    <%= submit_tag 'Save Changes' %>
+
+  <% if @guide.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+
+    <ul>
+      <% @guide.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
+
+
+  <h2> Create New Guide </h2>
+  <%= form_with model: @guide do |form| %>
+  <%= render partial: "guide_form", locals: { form: form } %>
+  <%= submit_tag 'Save Changes' %> 
+  <% end %>
+
+
+
+  </div>
 </main>    
 <% end %>    

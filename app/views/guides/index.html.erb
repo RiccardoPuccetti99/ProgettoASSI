@@ -7,13 +7,15 @@
   <table id="guides" class="table" style="background:rgba(61, 76, 218, 0.5);">
     <thead>
       <tr>
-        <th> Title </th>
-        <th> Champion </th>
-        <th> Role </th>
-        <th> Creator </th>
-        <th> Creation Date </th>
-        <th> Rating </th>
-        <th> More Info </th>
+        
+
+        <th style="font-size: 23px;"> Title </th>
+        <th><%= link_to "Champion", :sort => "champ_name"%> </th>
+        <th style="font-size: 23px;"> Role </th>
+        <th style="font-size: 23px;"> Creator </th>
+        <th><%= link_to "Creation date", :sort => "created_at"%> </th>
+        <th style="font-size: 23px;"> Rating </th>
+        <th style="font-size: 23px;"> More Info </th>
       </tr>
     </thead>  
     <tbody>
@@ -22,7 +24,7 @@
           <th> <%= guide.title%> </th>
           <th> <%= guide.champ_name%> </th>
           <th> <%= guide.champ_role%> </th>
-          <th> <%= guide.user.uid%> </th>
+          <th> <%= link_to guide.user.uid, user_path(guide.user)%> </th>
           <th> <%= guide.created_at%> </th>
           <th> <%= guide.avg_reviews%></th>
           <th> <%= link_to "Details", guide_path(guide)%> </th>
@@ -31,7 +33,7 @@
     </tbody>
     </table>  
   <br>
-  <%= link_to "Add new guide", new_guide_path %>
+  <div style="text-align: center"><%= link_to "Add new guide", new_guide_path %></div>
 </main>
 <% end %>
 

@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# COMMANDS
+
+* EDITOR="code --wait" bin/rails credentials:edit

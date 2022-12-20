@@ -1,7 +1,8 @@
 class GuidesController < ApplicationController
 
     def index
-        @guides = Guide.all      
+        #@guides = Guide.all.order('created_at DESC')
+		@guides = Guide.order(params[:sort])      
     end    
 
     def show

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root "services#index"
   devise_for :users
+  resources :users, :only => [:show]
+
   resources :services, only: [:index]
   resources :guides
   resources :reviews

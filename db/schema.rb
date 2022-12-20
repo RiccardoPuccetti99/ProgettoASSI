@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_11_162807) do
+ActiveRecord::Schema.define(version: 2022_12_19_140421) do
 
   create_table "guides", force: :cascade do |t|
     t.string "title", null: false
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_12_11_162807) do
     t.datetime "remember_created_at"
     t.integer "roles_mask", default: 1
     t.string "uid", default: "", null: false
-    t.integer "karma", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

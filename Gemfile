@@ -60,5 +60,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml'
 gem 'devise'
-gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 gem 'canard', '~> 0.6.2.pre' 
+

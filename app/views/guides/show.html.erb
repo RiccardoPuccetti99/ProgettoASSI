@@ -1,10 +1,12 @@
 <%= content_for :body do %>
 <main style="background-color: #140e30; color: white; padding-left: 10px">
   <br>
-  <h1 style="text-align:center;"><%= @guide.title%></h1>
-  <%= link_to "Back to guide list", guides_path %>
-  <br><br>
-  <h2> Details:</h2>
+  <h2 style="text-align:center; color:#b92208"><%= @guide.title%></h1>
+  <div style="padding-left:20px">
+  <%= link_to "Back to guide list", guides_path %></div>
+  <br>
+  <div class="border_guida">
+  <h3 class="container_centrato"> Details</h2>
 	
 	<ul id="details">
 		<li>
@@ -19,55 +21,62 @@
 		<li>
 			Creator:
 			<th> <%= link_to @guide.user.uid, user_path(@guide.user)%> </th>	
-	</ul>		      
+	</ul></div>		      
 
-	<h3> Description: </h3>
+	<div class="border_guida">
+	<h3 class="container_centrato"> Description</h3>
+	<p class="guida_testi" id="description"><%= @guide.guida%></p></div>
 
-	<p id="description"><%= @guide.guida%></p>
 
-	<h3> Building details: </h3>
+	<div class="border_guida">
+	<h3 class="container_centrato"> Building details</h3>
 
-	<p id="rune">
+	<p class="guida_testi" id="rune">
 	Runes:
 	<%= @guide.champ_rune%></p>
 
-	<p id="skill">
+	<p class="guida_testi" id="skill">
 	Skills order:
 	<%= @guide.skill_order%></p>
 
-	<p id="item">
+	<p class="guida_testi" id="item">
 	List of items:
-	<%= @guide.item%></p>
+	<%= @guide.item%></p></div>
 
-	<h3> Matchups: </h3>
+	<div class="border_guida">
+	<h3 class="container_centrato"> Matchups: </h3>
 
-	<p id="ideal">
+	<p class="guida_testi" id="ideal">
 	Ideal:
 	<%= @guide.ideal%></p>
 
-	<p id="counter">
-	Ideal:
-	<%= @guide.counter%></p>
+	<p class="guida_testi" id="counter">
+	Counter:
+	<%= @guide.counter%></p></div>
 
 	<% if user_signed_in? && (@guide.user_id == current_user.id || current_user.admin?) %>
 	
 	<br>
-	<%= link_to "Edit info", edit_guide_path(@guide) %> - <%= link_to "Delete", guide_path(@guide), :method => :delete %>
+	<div style="padding-left:20px">
+	<%= link_to "Edit info", edit_guide_path(@guide) %> - <%= link_to "Delete", guide_path(@guide), :method => :delete %></div>
 	<br>
 	<% end %>
 	
 
 	<hr class="rounded">
-	<%= link_to 'Add review', new_review_path(:guide_id => @guide) %>
+	<div style="padding-left:20px">
+	<%= link_to 'Add review', new_review_path(:guide_id => @guide) %></div>
 
 
 
-	<h3 style="padding-top: 20px">Reviews:</h3>
+	<h3 style="padding-top: 20px; text-align:center;">Reviews</h3>
+	<br>
    	<% if @guide.review.empty? %>
 	<p>No reviews yet</p>
 		
  	<% else %>
 	<% if can? :read, Review %>
+	<div style="padding-left:20px; padding-right:20px">
 		<table id="reviews" class="table" style="background:rgba(61, 76, 218, 0.5);">
     <thead>
       <tr>
@@ -80,7 +89,7 @@
     <tbody>
       <% @guide.review.each do |review| %>
         <tr>
-          <th> <%= review.user.uid%> </th>
+          <th> <%= link_to review.user.uid, user_path(review.user)%> </th>
           <th> <%= review.comment%> </th>
           <th> <%= review.rating%> </th>
 		  <th><% if user_signed_in? && (review.user == current_user || current_user.admin?) %>
@@ -90,7 +99,8 @@
         </tr> 
       <% end %>
     </tbody>
-    </table>  
+    </table>
+	</div>  
 	<% else %>
 		<b>You don't have the rights to read reviews.</b>
 	<% end %>

@@ -3,9 +3,11 @@
 <%# <div><%= image_tag("profile_icon.svg", {}) %> 
 <div style="color: white; font-size: 30px; text-align: center; padding-top: 30px">
   <p>Creator: <%= @user.uid %></p>
-  <p>Guides written: <%= @user.guide.count %> |  # of comments written: <%= @user.review.count %>  </p>
+  <p>Guides: <%= @user.guide.count %> |  Comments: <%= @user.review.count %>  </p>
+  <br>
 </div>
 
+<div style="padding-left:20px; padding-right:20px">
 <table id="guides" class="table" style="background:rgba(61, 76, 218, 0.5);">
   <thead>
       <tr>
@@ -31,6 +33,7 @@
       <% end %>
     </tbody>
     </table>
+    </div>
 
   
 

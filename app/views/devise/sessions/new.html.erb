@@ -1,31 +1,46 @@
 <% content_for :body do %>
 <main style="background-color: #140e30; color: white; padding-left: 10px;">
-  <br>
+  <br><br><br><br>
+
+  <div class="d-flex justify-content-center align-items-center h-100">
+  <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+  <!-- Container wrapper -->
+            <div class="container-fluid container_centrato">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field padding_container">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field padding_container">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field">
+    <div class="field padding_container">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions padding_container">
     <%= f.submit "Log in", data: {turbo: false} %>
   </div>
 <% end %>
 
+<div class="padding_container" style="padding-bottom:10px">
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</nav>
+</div>
+
 </main>
 <% end %>

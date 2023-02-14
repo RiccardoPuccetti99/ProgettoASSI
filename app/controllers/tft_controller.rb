@@ -93,7 +93,7 @@ class TftController < ApplicationController
         result = service.update_spreadsheet_value(spreadsheet.spreadsheet_id, range, Google::Apis::SheetsV4::ValueRange.new(values: values), value_input_option: "USER_ENTERED")
 
 
-        flash[:notice] = "<p>Your spreadsheet has been created. Check it out here:</p><a href='#{spreadsheet.spreadsheet_url}' target='_blank' class='notice_link'>#{spreadsheet_name}</a>".html_safe
+        flash[:notice] = "<p>Your spreadsheet has been created. Check it out here:</p><a href='#{spreadsheet.spreadsheet_url}' target='_blank'>#{spreadsheet_name}</a>".html_safe
         redirect_to tft_leaderboard_path
     end    
     

@@ -15,11 +15,14 @@
     <%= render "shared/nav" %>
     
     <% flash.each do |type, msg| %>
-      <br>
-      <div style="text-align: center; font-size: 20px">
+      
+      <div style="background-color: #160220;text-align: center; font-size: 20px; color:white">
+        <br>
         <%= msg.html_safe %>
+        <br>
+        <br>
       </div>
-      <br>
+      
     <% end %>
 
     <%= yield :body %>

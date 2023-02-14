@@ -54,6 +54,10 @@
     <!--fine maschera-->
 
     <div class="fixtable">
+        <% if user_signed_in? && current_user.provider == "google_oauth2"%>
+                  <div style="text-align: center"><%= link_to "Add to Google Spreadsheet", tft_addToSpreadsheet_path %></div>
+                  <br>
+        <% end %>
           <table id="printLeaderBoard" class="table">
             <thead>
               <tr>

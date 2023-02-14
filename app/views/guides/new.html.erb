@@ -1,9 +1,15 @@
 <%= content_for :body do %>
 <main style="background-color: #140e30; color: white">
-  <div style="padding-left: 10px">
-  <br>
-  <h1 style="text-align:center;">Guides</h1>
-  <br>
+  <br><br>
+
+  <div class="d-flex justify-content-center align-items-center h-100">
+  <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+  <!-- Container wrapper -->
+            <div class="container-fluid container_centrato">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
+
 
   <% if @guide.errors.any? %>
   <div id="error_explanation">
@@ -18,7 +24,7 @@
   <% end %>
 
 
-  <h2> Create New Guide </h2>
+  <h2> New guide creation</h2>
   <%= form_with model: @guide do |form| %>
   <%= render partial: "guide_form", locals: { form: form } %>
   <%= submit_tag 'Save Changes' %> 
@@ -27,5 +33,8 @@
 
 
   </div>
+</div>
+</nav>
+</div>
 </main>    
 <% end %>    

@@ -68,4 +68,5 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'canard', '~> 0.6.2.pre' 
+gem 'google-api-client', '~> 0.36'
 

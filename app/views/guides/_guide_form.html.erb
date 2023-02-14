@@ -1,32 +1,33 @@
+<br>
 <%= form.label :title, 'Title: ' %><br>
-<%= form.text_field :title %><br>
+<%= form.text_field :title, :maxlength=>"40" %><br><br>
 
 <%= form.label :champ_name, 'Champion name: ' %><br>
-<%= form.text_field :champ_name %><br>
+<%= form.text_field :champ_name, :maxlength=>"40" %><br><br>
 
 <%= form.label :champ_role, 'Champion role: ' %><br>
-<%= form.select :champ_role,  ['Toplaner', 'Jungler', 'Midlaner', 'ADCarry', 'Support'] %><br>
+<%= form.select :champ_role,  ['Toplaner', 'Jungler', 'Midlaner', 'ADCarry', 'Support'] %><br><br>
 
 <%= form.label :champ_rune, 'Rune: '%><br>
-<%= form.text_area :champ_rune %><br>
+<%= form.text_area :champ_rune, :cols=>"43" %><br><br>
 
 <%= form.label :skill_order, 'Skill order: ' %><br>
-<%= form.text_field :skill_order %><br>
+<%= form.text_field :skill_order, :maxlength=>"40" %><br><br>
 
 <%= form.label :path_jungle, 'Jungle path: ' %><br>
-<%= form.text_area :path_jungle %><br>
+<%= form.text_area :path_jungle, :cols=>"43" %><br><br>
 
 <%= form.label :item, 'Item: ' %><br>
-<%= form.text_area :item %><br>
+<%= form.text_area :item, :cols=>"43" %><br><br>
 
 <%= form.label :guida, 'Guide: ' %><br>
-<%= form.text_area :guida %><br>
+<%= form.text_area :guida, :cols=>"43" %><br><br>
 
 <%= form.label :counter, 'Counter matchups: ' %><br>
-<%= form.text_area :counter %><br>
+<%= form.text_area :counter, :cols=>"43" %><br><br>
 
 <%= form.label :ideal, 'Ideal matchups: ' %><br>
-<%= form.text_area :ideal %><br>
+<%= form.text_area :ideal, :cols=>"43" %><br><br>
 
 
 

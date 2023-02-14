@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_14_225646) do
+ActiveRecord::Schema.define(version: 2023_02_14_144353) do
 
   create_table "guides", force: :cascade do |t|
     t.string "title", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2023_01_14_225646) do
     t.datetime "last_sign_in_at"
     t.integer "current_sign_in_ip"
     t.integer "last_sign_in_ip"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

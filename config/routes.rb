@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get "tft_review_player", to: "tft#apicall"
   get "tft_leaderboard", to: "tft#leaderboard"
   get "tft_leaderboard_queue", to: "tft#leaderboardAPI"
+  get "tft_addToSpreadsheet", to: "tft#addToSpreadsheet"
 
 
 end

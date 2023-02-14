@@ -1,15 +1,24 @@
 <%= content_for :body do %>
 <main style="background-color: #140e30; color: white">
-  <br>
-  <h1 style="text-align:center;">Guides</h1>
-  <br>
-  <h2> Edit Guide </h2>
+  <br><br>
+
+  <div class="d-flex justify-content-center align-items-center h-100">
+  <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+  <!-- Container wrapper -->
+            <div class="container-fluid container_centrato">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
+  <h2> Edit guide </h2>
   
   <%= form_with model: @guide do |form| %>
   <%= render partial: "guide_form", locals: { form: form } %>
   <%= submit_tag 'Save Changes' %> 
   <% end %>
 
-
+  </div>
+</div>
+</nav>
+</div>
 </main>    
 <% end %>   

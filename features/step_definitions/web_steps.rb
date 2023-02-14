@@ -31,6 +31,26 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+#custom steps
+
+
+Given /^a valid user$/ do
+  @user = User.create!({
+             :uid => "Tester",
+             :email => "testStep@case.com",
+             :password => "12345678",
+             :password_confirmation => "12345678"
+           })
+end
+
+Given /^a logged in user$/ do
+  Given "a valid user"
+  visit signin_url
+  fill_in "Email", :with => "testStep@case.com"
+  fill_in "Password", :with => "12345678"
+  click_button "Log in"
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
@@ -44,6 +64,8 @@ end
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
+
+
 
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)

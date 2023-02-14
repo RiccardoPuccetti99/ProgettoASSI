@@ -1,4 +1,6 @@
 class TftController < ApplicationController
+    require 'google/apis/sheets_v4'
+
     def review
     end    
 
@@ -62,7 +64,38 @@ class TftController < ApplicationController
               render json: response["entries"]
             }
         end
-    end  
+    end 
+
+    #aggiunta della classifica aggiornata a google spreadsheet
+    def addToSpreadsheet
+        # Initialize the Google Sheets API client
+        client = Signet::OAuth2::Client.new(access_token: current_user.token)
+        service = Google::Apis::SheetsV4::SheetsService.new
+        service.authorization = client
+
+        # Create a new spreadsheet
+        current_date = Time.now.strftime('%Y-%m-%d_%H-%M-%S')
+        spreadsheet_name = "TFT-LEADERBOARD-#{current_date}"
+        
+
+        riot_key = Rails.application.credentials[:riot_key] 
+        response = HTTP.get("https://euw1.api.riotgames.com/tft/league/v1/challenger", :params =>{:api_key => riot_key}).parse
+        sorted_leaderboard = response["entries"].sort_by{ |obj| -obj["leaguePoints"] }.take(50)
+        values = sorted_leaderboard.map { |obj| [obj["summonerName"], obj["leaguePoints"], obj["wins"], obj["losses"]] }
+        range = "A1:D#{51}"
+        header = [["Name", "Points", "Wins", "Losses"]]
+        values = header+values
+
+        spreadsheet = Google::Apis::SheetsV4::Spreadsheet.new(properties: { title: spreadsheet_name })
+        spreadsheet = service.create_spreadsheet(spreadsheet)
+
+        # Add the data to the spreadsheet
+        result = service.update_spreadsheet_value(spreadsheet.spreadsheet_id, range, Google::Apis::SheetsV4::ValueRange.new(values: values), value_input_option: "USER_ENTERED")
+
+
+        flash[:notice] = "<p>Your spreadsheet has been created. Check it out here:</p><a href='#{spreadsheet.spreadsheet_url}' target='_blank' class='notice_link'>#{spreadsheet_name}</a>".html_safe
+        redirect_to tft_leaderboard_path
+    end    
     
     
 

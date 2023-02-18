@@ -309,5 +309,5 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   config.omniauth :google_oauth2, Rails.application.credentials.dig(:google, :google_APP_ID),
-  Rails.application.credentials.dig(:google, :google_APP_SECRET), scope: 'userinfo.email,userinfo.profile,https://www.googleapis.com/auth/spreadsheets'
+  Rails.application.credentials.dig(:google, :google_APP_SECRET), scope: 'userinfo.email,userinfo.profile,https://www.googleapis.com/auth/spreadsheets,https://www.googleapis.com/auth/documents,https://www.googleapis.com/auth/drive'
 end

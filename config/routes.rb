@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   get "tft_leaderboard_queue", to: "tft#leaderboardAPI"
   get "tft_addToSpreadsheet", to: "tft#addToSpreadsheet"
 
+  get "guides_addToDocs", to: "guides#addToDocs"
+
 
 end

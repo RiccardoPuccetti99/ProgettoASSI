@@ -4,6 +4,10 @@
   <h2 style="text-align:center"><%= @guide.title%></h1>
   <div style="padding-left:20px">
   <%= link_to "Back to guide list", guides_path %></div>
+  <% if user_signed_in? && current_user.provider == "google_oauth2"%>
+                  <div style="text-align: center"><%= link_to "Add guide to Google Docs", guides_addToDocs_path(guide_id: @guide.id) %></div>
+                  <br>
+        <% end %>
   <br>
   <div class="border_guida">
   <h3 class="container_centrato"> Details</h2>

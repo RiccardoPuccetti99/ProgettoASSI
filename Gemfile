@@ -37,6 +37,8 @@ group :development, :test do
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
   gem 'cucumber-rails-training-wheels'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do

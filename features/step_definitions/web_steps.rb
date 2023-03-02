@@ -33,23 +33,33 @@ World(WithinHelpers)
 
 #custom steps
 
-
-Given /^a valid user$/ do
-  @user = User.create!({
-             :uid => "Tester",
-             :email => "testStep@case.com",
-             :password => "12345678",
-             :password_confirmation => "12345678"
-           })
-end
-
-Given /^a logged in user$/ do
-  Given "a valid user"
-  visit signin_url
-  fill_in "Email", :with => "testStep@case.com"
-  fill_in "Password", :with => "12345678"
+Given(/^I am authenticated$/) do
+  u = User.create!(:email=>"teststep@case.com",
+  :password => "password123",
+  :uid => "teststep",
+  :roles_mask => 1 )
+  visit "/users/sign_in"
+  fill_in "Email", with: "teststep@case.com"
+  fill_in "Password", with: "password123"
   click_button "Log in"
-end
+  expect(page).to have_text("Signed in successfully.")
+  end
+
+Given("I have a guide") do
+  u = User.create!(:email=>"teststep@case.com",
+    :password => "password123",
+    :uid => "teststep",
+    :roles_mask => 1 )
+  guide = Guide.create!(:title=>"Aatrox toplane",
+    :champ_name=>"Aatrox",
+    :champ_role=>"Toplane",
+    :guida=>"Play aggressive",
+    :champ_rune=>"Red runes",
+    :skill_order=>"qwerqqwer",
+    :item=>"Bruiser items",
+    :user_id => u.id)
+  end  
+
 
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|

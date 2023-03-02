@@ -26,6 +26,9 @@ module NavigationHelpers
     when /^the Create New Guide Page$/
       '/guides/new'  
     
+    when /^the Show Guide Page$/
+      '/guides/1'   
+
     when /^the Login Page$/  
       '/users/sign_in'
         

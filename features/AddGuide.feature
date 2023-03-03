@@ -1,4 +1,4 @@
-Feature: User can add manually a guide
+Feature: Authenticated user can manually add a guide
 
 Background: 
   Given I am authenticated

@@ -31,6 +31,9 @@ module NavigationHelpers
 
     when /^the Login Page$/  
       '/users/sign_in'
+    
+    when /^the Add New Comment Page$/
+      '/reviews/new'  
         
 
     # Add more mappings here.

@@ -20,5 +20,3 @@ RSpec.describe GuidesController, type: :controller do
     end
   end
 end
-
-  

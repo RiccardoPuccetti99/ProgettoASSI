@@ -33,7 +33,10 @@ module NavigationHelpers
       '/users/sign_in'
     
     when /^the Add New Comment Page$/
-      '/reviews/new'  
+      '/reviews/new'
+      
+    when /^the Lol Review Page$/
+      '/lol_review'  
         
 
     # Add more mappings here.

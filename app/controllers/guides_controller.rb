@@ -28,7 +28,8 @@ class GuidesController < ApplicationController
 			if (@guide.title.present? && @guide.champ_name.present? && @guide.guida.present?) && @guide.save
 			flash[:notice] = "#{@guide.title} was successfully created."
 			redirect_to guides_path
-		else 
+		else
+			flash[:notice] = "One or more parameters are missing. Error"  
 			render :new, status: :unprocessable_entity
 		end	
 		

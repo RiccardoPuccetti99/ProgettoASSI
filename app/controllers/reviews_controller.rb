@@ -9,11 +9,16 @@ class ReviewsController < ApplicationController
 		@guide = Guide.find(id_guide)
 		@user = current_user
         authorize! :create, Review, :message => "BEWARE: You are not authorized to create new reviews."
-		@review = @guide.review.create!(params[:review].permit(:rating, :comment, :user))	
-		@review.user_id = @user.id
-		@review.save!
-		flash[:notice] = "Your review has been successfully added to #{@guide.title}."
-		redirect_to guide_path(@guide)
+		if params[:review][:rating].present?
+			@review = @guide.review.create!(params[:review].permit(:rating, :comment, :user))	
+			@review.user_id = @user.id
+			@review.save!
+			flash[:notice] = "Your review has been successfully added to #{@guide.title}."
+			redirect_to guide_path(@guide)
+		else
+			flash[:notice] = "One or more parameters are missing. Error" 
+			render :new, status: :unprocessable_entity
+		end		
     end 
     
     def destroy

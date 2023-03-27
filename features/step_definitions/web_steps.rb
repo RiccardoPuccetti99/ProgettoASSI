@@ -71,18 +71,16 @@ Given("I have a guide with ID {int}") do |id|
     visit "/reviews/new?guide_id=#{id}"
   end
 
-  When(/^I click "Player review"$/) do
-    within(:xpath, '//*[@id="navbarSupportedContent"]/ul/li[2]') do
-    click_link("Player review")
-    end  
-  end  
   
-  Then /^I should see the content in the League container$/ do
-    within "#rowLeague" do
-      wait = Selenium::WebDriver::Wait.new(timeout: 10)
-      wait.until { page.has_css?('.riquadro_league') }
-    end
-  end
+  
+  
+  
+  #When(/^I click "Player review"$/) do
+    #within(:xpath, '//*[@id="navbarSupportedContent"]/ul/li[2]') do
+    #click_link("Player review")
+    #end  
+  #end  
+
 
 
 

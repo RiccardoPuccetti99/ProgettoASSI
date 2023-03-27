@@ -35,8 +35,8 @@ module NavigationHelpers
     when /^the Add New Comment Page$/
       '/reviews/new'
       
-    when /^the Lol Review Page$/
-      '/lol_review'  
+    #when /^the Lol Review Page$/
+      #'/lol_review'  
         
 
     # Add more mappings here.

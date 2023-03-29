@@ -1,3 +1,3 @@
 Canard::Abilities.for(:user) do
-  can [:read, :create], Guide
+  can [:read], Guide
 end

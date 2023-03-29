@@ -3,20 +3,32 @@ require 'cancan/matchers'
 
 describe Canard::Abilities, '#admins' do
   let(:acting_admin) { User.create(roles: %w(admin)) }
+  let(:other_writer) { User.create(id: 2, roles: %w(writer)) }
   subject(:admin_ability) { Ability.new(acting_admin) }
 
-#   # Define your ability tests thus;
-#   describe 'on Admin' do
-#     let(:admin) { FactoryGirl.create(admin) }
-#
-#     it { is_expected.to be_able_to(:index,   Admin) }
-#     it { is_expected.to be_able_to(:show,    admin) }
-#     it { is_expected.to be_able_to(:read,    admin) }
-#     it { is_expected.to be_able_to(:new,     admin) }
-#     it { is_expected.to be_able_to(:create,  admin) }
-#     it { is_expected.to be_able_to(:edit,    admin) }
-#     it { is_expected.to be_able_to(:update,  admin) }
-#     it { is_expected.to be_able_to(:destroy, admin) }
-#   end
-#   # on Admin
+  describe 'on Guide' do
+    let(:guide) { Guide.create(user: acting_admin) }
+    let(:other_guide) { Guide.create(user: other_writer) }
+
+    it { is_expected.to be_able_to( :read, guide ) }
+    it { is_expected.to be_able_to( :create, guide) }
+    it { is_expected.to be_able_to( :update, guide) }
+    it { is_expected.to be_able_to( :destroy, guide) }
+
+    it { is_expected.to be_able_to( :read, other_guide ) }
+    it { is_expected.to be_able_to(:update, other_guide) }
+    it { is_expected.to be_able_to(:destroy, other_guide) }
+  end
+  
+  describe 'on Review' do
+    let(:review) { Review.create(user: acting_admin) }
+    let(:other_review) { Review.create(user: other_writer)}
+
+    it { is_expected.to be_able_to(:read, review) }
+    it { is_expected.to be_able_to(:create, review) }
+    it { is_expected.to be_able_to(:destroy, review) }
+
+    it { is_expected.to be_able_to(:read, other_review) }
+    it { is_expected.to be_able_to(:destroy, other_review) }
+  end
 end

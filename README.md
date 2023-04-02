@@ -1,6 +1,6 @@
 # README
 
-How to test the applicazion:
+How to test the application:
 * You need a riot account to get a riot api key
 * You need google oauth credentials to obtain the keys
 * You can use this command EDITOR="code --wait" bin/rails credentials:edit to change the keys

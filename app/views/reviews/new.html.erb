@@ -1,6 +1,15 @@
 <%= content_for :body do %>
 <main style="background-color: #140e30; color:white">
 
+<br><br>
+
+  <div class="d-flex justify-content-center align-items-center h-100">
+  <nav class="navbar navbar-expand-lg navbar-dark riquadro">
+  <!-- Container wrapper -->
+            <div class="container-fluid container_centrato">
+
+              <!-- Collapsible wrapper -->
+              <div class="w-auto">
   <h2>Add a comment</h2> 
 
 <%= form_tag reviews_path(:guide_id => @guide), :method => :post do %>
@@ -14,6 +23,9 @@
   <br/><br/>
   <%= submit_tag 'Add review' %>
 <% end %>
-
+  </div>
+</div>
+</nav>
+</div>
   </main>    
 <% end %> 
